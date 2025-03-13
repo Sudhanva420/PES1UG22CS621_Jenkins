@@ -15,9 +15,18 @@ pipeline {
                 sh 'g++ main/new.cpp -o output'
             }
         }
+        /* Wrong output code
         stage('Test') {
             steps {
                 sh './wrong_output'  // This file does not exist!
+            }
+        }
+        */
+
+        /* Correct test code */
+        stage('Test') {
+            steps {
+                sh './output'
             }
         }
 
